@@ -1205,6 +1205,10 @@
         \@settrue{text-sup}%
         \@@set{ref-key}{footnote:{g.ctr-footnote}}%
         \@ref{\thefootnote}%
+        \@@def\@currentlabel{^}%
+        \@@set{ref-prefix}{o}% 
+        \@@bmk%
+        \@@label{footnote-origin:{g.ctr-footnote}}%
     }%
     \@dec{g.ctr-footnote}%
 }
@@ -1215,7 +1219,9 @@
     \@settrue{text-sup}%
     \@@def\@currentlabel{#2}%
     \@@bmk%
-    \@@label{footnote:#1}%
+    \@@label{footnote:#2}%
+    \@@set{ref-key}{footnote-origin:#2}%
+    \@ref{#2}%
     \@setfalse{text-sup}%
 }
 
