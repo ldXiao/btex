@@ -1269,7 +1269,27 @@
     \@footnotetext{#1}%
 }
 
-\def\footnote#1{\footnotemark\footnotetext{#1}}
+\def\@footnoteorigin{%
+    \@inc{g.ctr-footnote}%
+    {%
+        \@settrue{text-sup}%
+        \@@def\@currentlabel{^}%
+        \@@set{ref-prefix}{o}% 
+        \@@bmk%
+        \@@label{footnote-origin:{g.ctr-footnote}}%
+    }%
+    \@dec{g.ctr-footnote}%
+}
+
+\def\@footnoteoriginref{%
+    \@settrue{text-sup}%
+    \@@set{ref-key}{footnote-origin:{g.ctr-footnote}}%
+    \@ref{\thefootnote}%
+    \ % space
+    \@setfalse{text-sup}%
+}
+
+\def\footnote#1{\footnotemark\@footnoteorigin\footnotetext{\@footnoteoriginref#1}}
 
 \def\printfootnotes{%
     {%
