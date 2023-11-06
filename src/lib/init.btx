@@ -1269,6 +1269,21 @@
 }
 
 
+% ==========           COLLAPSE             ==========
+\envdef{collapse}{}{%
+    \@begingroup%
+    \@@set{par-align}{left}%
+    \@@enter{details}%
+}{%
+    \@@exit{details}%
+    \@endgroup%
+}
+
+\def\summary#1{
+    \@@enter{summary}
+        #1
+    \@@exit{summary}
+}
 % ==========           CODE             ==========
 
 \def\@code{\@@set{code-lang}{btex}\@@code}

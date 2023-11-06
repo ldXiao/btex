@@ -1,5 +1,7 @@
 import { Context } from './Context';
 import { CaptionElement } from './elements/CaptionElement';
+import { DetailsElement } from './elements/DetailsElement';
+import { DetailsSummaryElement } from './elements/DetailsSummaryElement';
 import { DiagramElement } from './elements/DiagramElement';
 import { DivElement } from './elements/DivElement';
 import { FigureElement } from './elements/FigureElement';
@@ -61,4 +63,6 @@ export const Containers: { [name: string]: ContainerConstructor } = {
   image: ImageElement,
   figure: FigureElement,
   caption: CaptionElement,
+  details: DetailsElement,
+  summary: DetailsSummaryElement,
 };
