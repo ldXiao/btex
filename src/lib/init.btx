@@ -1196,6 +1196,7 @@
 
 \tdef\href{\@href}
 \tdef\url#1{\@href{#1}{#1}}
+\def\enablerelativeurl{\@settrue{enable-relative-url}}
 
 \envdef{references}{}{%
     \@@def\bibitem##1{%
