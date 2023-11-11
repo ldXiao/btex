@@ -53,6 +53,8 @@ export class ReferenceElement implements ContainerElement {
 
     if (this.url && /^https?:\/\/\w/.test(this.url)) {
       context.externalLinks.push(this.url);
+    } else if(this.url && context.getBoolean('enable-relative-url', false, false)) {
+      context.externalLinks.push(this.url);
     } else {
       delete this.url;
     }
