@@ -9,6 +9,7 @@ import { HeaderElement } from './elements/HeaderElement';
 import { ImageElement } from './elements/ImageElement';
 import { ListElement } from './elements/ListElement';
 import { MathElement } from './elements/MathElement';
+import { MarginnoteElement} from './elements/MarginnoteElement';
 import { ParagraphElement } from './elements/ParagraphElement';
 import { ReferenceElement } from './elements/ReferenceElement';
 import { TableElement } from './elements/TableElement';
@@ -56,6 +57,7 @@ export const Containers: { [name: string]: ContainerConstructor } = {
   header: HeaderElement,
   list: ListElement,
   math: MathElement,
+  marginnote: MarginnoteElement,
   table: TableElement,
   toc: TabelOfContentElement,
   ref: ReferenceElement,
