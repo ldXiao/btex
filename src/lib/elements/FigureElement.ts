@@ -6,6 +6,8 @@ import { ParagraphElement } from './ParagraphElement';
 import { BookmarkElement } from './BookmarkElement';
 import { ImageElement } from './ImageElement';
 import { CaptionElement } from './CaptionElement';
+import { TikzElement } from './TikzElement';
+import { MathElement } from './MathElement';
 
 export class FigureElement implements ContainerElement {
   name: 'figure' = 'figure';
@@ -71,9 +73,13 @@ export class FigureElement implements ContainerElement {
       {
         captionChild = child;
       }
-      else 
+      else if (child instanceof MathElement)
       {
         newChildren.push(child);
+      }
+      else 
+      {
+        newChildren.push(child)
       }
     }
     // always place caption at the end if any

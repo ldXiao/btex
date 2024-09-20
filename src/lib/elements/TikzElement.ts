@@ -4,6 +4,7 @@ import { ParagraphElement } from './ParagraphElement';
 import { URL } from 'url';
 import { Token } from '../Token';
 import { MathElement } from './MathElement';
+import { Generate } from 'tikzjs'
 import axios from 'axios';
 
 export class TikzElement implements ContainerElement {
@@ -51,7 +52,7 @@ export class TikzElement implements ContainerElement {
     context.promises.push(this.asyncRender(this.getText()));
   }
 
-  render(options?: RenderOptions): Node[] {
+  render(options?: RenderOptions): HTMLElement[] {
     if (this.noRender) return [];
 
     let span = document.createElement('span');
@@ -62,8 +63,25 @@ export class TikzElement implements ContainerElement {
       span.setAttribute('data-pos', ((this.initiator.start?.line ?? 0) + 1).toString());
     }
     this.placeholder = span;
+    let body = '';
+    try {
+      let str = `\\tikz[]{${this.getText()}}` 
+      body = Generate(str)
+    } catch {
+      return [span];
+    }
+    if(body)
+    {
+      this.svg = body
+      let div = document.createElement('div');
+      div.innerHTML = this.svg;
 
-    return [span];
+      let element = div.firstChild;
+      if (element !== null)
+        this.placeholder?.replaceWith(element);
+      return [div]
+    }
+    else return [span]
   }
 
   async asyncRender(text: string): Promise<undefined> {

@@ -129,5 +129,5 @@ if (require.main === module) {
   serve(argv.port);
 
   // Uncomment to compile ./test/test.btx to ./test/test.html
-  // test();
+  test();
 }

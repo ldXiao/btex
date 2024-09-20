@@ -205,7 +205,8 @@ export class MathElement implements ContainerElement {
 
       span.innerHTML = html;
     }
-
+    if(tikz)
+      return tikz.render(options)
     return [span];
   }
 }

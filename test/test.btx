@@ -1,0 +1,6 @@
+\begin{theorem}
+\begin{figure}
+\tikz{\path[draw=red,<->] (0,0)--(1,1);}
+\caption{tikz figure}
+\end{figure}
+\end{theorem}
